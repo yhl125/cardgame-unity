@@ -8,10 +8,38 @@ public static class Utils
     {
         return CreateApiRequest(uri, UnityWebRequest.kHttpVerbPOST, body);
     }
-    
+
     public static UnityWebRequest CreateApiPutRequest(string uri, object body = null)
     {
         return CreateApiRequest(uri, UnityWebRequest.kHttpVerbPUT, body);
+    }
+
+    public static UnityWebRequest AuthorizedGetRequest(string uri)
+    {
+        var request = UnityWebRequest.Get(uri);
+        request.SetRequestHeader("Authorization", "Bearer " + PlayerPrefs.GetString("access_token"));
+        return request;
+    }
+
+    public static UnityWebRequest AuthorizedDeleteRequest(string uri)
+    {
+        var request = UnityWebRequest.Delete(uri);
+        request.SetRequestHeader("Authorization", "Bearer " + PlayerPrefs.GetString("access_token"));
+        return request;
+    }
+
+    public static UnityWebRequest AuthorizedPostRequest(string uri, object body = null)
+    {
+        var request = CreateApiPostRequest(uri, body);
+        request.SetRequestHeader("Authorization", "Bearer " + PlayerPrefs.GetString("access_token"));
+        return request;
+    }
+
+    public static UnityWebRequest AuthorizedPutRequest(string uri, object body = null)
+    {
+        var request = CreateApiPutRequest(uri, body);
+        request.SetRequestHeader("Authorization", "Bearer " + PlayerPrefs.GetString("access_token"));
+        return request;
     }
 
     static UnityWebRequest CreateApiRequest(string url, string method, object body)
