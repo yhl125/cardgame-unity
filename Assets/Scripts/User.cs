@@ -27,9 +27,8 @@ public class User : MonoBehaviour
 
     IEnumerator GetMeRequest()
     {
-        using (var request = UnityWebRequest.Get(_uri + "/me"))
+        using (var request = Utils.AuthorizedGetRequest(_uri + "/me"))
         {
-            request.SetRequestHeader("Authorization", "Bearer " + PlayerPrefs.GetString("access_token"));
             yield return request.SendWebRequest();
 
             Debug.Log(request.result == UnityWebRequest.Result.ConnectionError
@@ -40,9 +39,8 @@ public class User : MonoBehaviour
 
     IEnumerator LoggedInRequest()
     {
-        using (var request = UnityWebRequest.Get(_uri + "/logged_in"))
+        using (var request = Utils.AuthorizedGetRequest(_uri + "/logged_in"))
         {
-            request.SetRequestHeader("Authorization", "Bearer " + PlayerPrefs.GetString("access_token"));
             yield return request.SendWebRequest();
 
             Debug.Log(request.result == UnityWebRequest.Result.ConnectionError
