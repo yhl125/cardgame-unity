@@ -10,6 +10,7 @@ public class LogIn : MonoBehaviour
     public Canvas MainMenu;
     public Canvas LogInPage;
     public TMPro.TextMeshProUGUI Error;
+    public Text EnterTxt;
     //If id and password is correct, flag is true and goes on to main menu
     private bool flag = false;
 
@@ -18,9 +19,10 @@ public class LogIn : MonoBehaviour
     
     void Start()
     {
+        Enter.onClick.AddListener(Click);
         if (flag)
         {
-            Enter.onClick.AddListener(Click);
+            EnterTxt.text = "Register";
         }
         else{
             Enter.onClick.AddListener(ShowError);
