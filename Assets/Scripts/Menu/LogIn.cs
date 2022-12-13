@@ -30,9 +30,7 @@ public class LogIn : MonoBehaviour
         {
             yield return request.SendWebRequest();
 
-            var result = request.result == UnityWebRequest.Result.ConnectionError
-                ? request.error
-                : request.downloadHandler.text;
+            var result = Utils.RequestResult(request);
 
             if (result == Utils.ErrorMessage("Invalid credentials"))
             {

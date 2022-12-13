@@ -311,10 +311,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f99e51c39ae2ae43bcfafae9b9ac189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Create: {fileID: 68193057}
-  AccountCreated: {fileID: 1114384515}
-  Register: {fileID: 1404507650}
-  Error: {fileID: 875329332}
+  create: {fileID: 68193057}
+  accountCreated: {fileID: 1846092471}
+  register: {fileID: 1404507650}
+  userExistError: {fileID: 875329332}
+  nameInputField: {fileID: 364073023}
+  passwordInputField: {fileID: 1688098222}
 --- !u!1 &73482202
 GameObject:
   m_ObjectHideFlags: 0
@@ -7682,7 +7684,6 @@ GameObject:
   - component: {fileID: 1011477383}
   - component: {fileID: 1011477382}
   - component: {fileID: 1011477381}
-  - component: {fileID: 1011477380}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -7711,25 +7712,6 @@ RectTransform:
   m_AnchoredPosition: {x: -300, y: -216.3}
   m_SizeDelta: {x: 300, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1011477380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1011477378}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8cb1fca6079e5247af0432784e74388, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enter: {fileID: 0}
-  mainMenu: {fileID: 0}
-  logInPage: {fileID: 0}
-  nameInputField: {fileID: 0}
-  passwordInputField: {fileID: 0}
-  passwordError: {fileID: 0}
-  notExistError: {fileID: 0}
 --- !u!114 &1011477381
 MonoBehaviour:
   m_ObjectHideFlags: 0

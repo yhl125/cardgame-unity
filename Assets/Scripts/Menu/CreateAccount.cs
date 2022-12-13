@@ -1,44 +1,61 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class CreateAccount : MonoBehaviour
 {
-    public Button Create;
-    public Canvas AccountCreated;
-    public Canvas Register;
-    public TMPro.TextMeshProUGUI Error;
-    //If account is created, flag is true and shows "account created"(canvas)
-    private bool flag = false;
+    private readonly string _uri = Environment.GetEnvironmentVariable("API_URI") + "/user";
 
-    //Codes for checking if entered login was done properly(flag=true)
-    //...
-    
+    public Button create;
+    public Canvas accountCreated;
+    public Canvas register;
+    public TextMeshProUGUI userExistError;
+    public TMP_InputField nameInputField, passwordInputField;
+
+
     void Start()
     {
-        if (flag)
+        create.onClick.AddListener(() =>
+            StartCoroutine(Signup(nameInputField.text, passwordInputField.text)));
+    }
+
+    private IEnumerator Signup(string userName, string password)
+    {
+        var sampleUpdateInput = new LoginInput { name = userName, password = password };
+        using (var request = Utils.CreateApiPostRequest(_uri + "/signup", sampleUpdateInput))
         {
-            Create.onClick.AddListener(Click);
-        }
-        else{
-            Create.onClick.AddListener(ShowError);
+            yield return request.SendWebRequest();
+
+            var result = Utils.RequestResult(request);
+
+            if (result == Utils.ErrorMessage("User already exists"))
+            {
+                ShowUserExistError();
+            }
+            else
+            {
+                Click();
+            }
         }
     }
+
     private void Click()
     {
-        AccountCreated.gameObject.SetActive(true);
-        Register.gameObject.SetActive(false);
+        accountCreated.gameObject.SetActive(true);
+        register.gameObject.SetActive(false);
     }
-    private void ShowError()
+
+    private void ShowUserExistError()
     {
-        Error.enabled = true;
+        userExistError.enabled = true;
         StartCoroutine(Wait());
     }
-    IEnumerator Wait()
+
+    private IEnumerator Wait()
     {
         yield return new WaitForSeconds(3);
-        Error.enabled = false;
+        userExistError.enabled = false;
     }
 }
