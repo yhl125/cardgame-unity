@@ -12,7 +12,7 @@ public class LogIn : MonoBehaviour
     public TMPro.TextMeshProUGUI Error;
     public Text EnterTxt;
     //If id and password is correct, flag is true and goes on to main menu
-    private bool flag = false;
+    private bool flag = false, is_registor = false;
 
     //Codes for checking if entered login was done properly(flag=true)
     //...
@@ -30,8 +30,15 @@ public class LogIn : MonoBehaviour
     }
     private void Click()
     {
-        MainMenu.gameObject.SetActive(true);
-        LogInPage.gameObject.SetActive(false);
+        if (!is_registor)
+        {
+            MainMenu.gameObject.SetActive(true);
+            LogInPage.gameObject.SetActive(false);
+        }
+        else
+        {
+            //registor page
+        }
     }
     private void ShowError()
     {

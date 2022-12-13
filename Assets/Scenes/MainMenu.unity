@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -792,7 +792,7 @@ GameObject:
   - component: {fileID: 244359182}
   - component: {fileID: 244359181}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: EnterTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1886,6 +1886,7 @@ MonoBehaviour:
   MainMenu: {fileID: 1296470306}
   LogInPage: {fileID: 1846092471}
   Error: {fileID: 394863607}
+  EnterTxt: {fileID: 0}
 --- !u!1 &708096624
 GameObject:
   m_ObjectHideFlags: 0
