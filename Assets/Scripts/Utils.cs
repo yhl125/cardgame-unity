@@ -65,4 +65,9 @@ public static class Utils
         request.timeout = 60;
         return request;
     }
+    
+    public static string ErrorMessage(string message)
+    {
+        return "{\"detail\":\"" + message + "\"}";
+    }
 }
