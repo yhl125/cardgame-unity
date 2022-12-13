@@ -1,47 +1,42 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine;
+using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class CreateBtn : MonoBehaviour
 {
-    public Button Create;
-    public Canvas CreateMenu;
-    public Canvas WaitScreen;
-    public TMPro.TextMeshProUGUI Error;
-    //If name is not blank
-    //and room is successfully registered on server
-    //and player status is changed to enter
-    //then flag is true
-    private bool flag = false;
+    private readonly string _uri = Environment.GetEnvironmentVariable("API_URI") + "/blackjack";
 
-    //Codes for registering room name on server
-    //...
-    
+    public Button create;
+    public Canvas createMenu;
+    public Canvas waitScreen;
+    public TMP_InputField nameInputField;
+
+
     void Start()
     {
-        if (flag)
+        create.onClick.AddListener(() => StartCoroutine(CreateGame(nameInputField.text)));
+    }
+
+    private IEnumerator CreateGame(string gameName)
+    {
+        using (var request = UnityWebRequest.Post(_uri + "/create", gameName))
         {
-            Create.onClick.AddListener(Click);
-        }
-        else{
-            Create.onClick.AddListener(ShowError);
+            yield return request.SendWebRequest();
+
+            var result = Utils.RequestResult(request);
+
+            PlayerPrefs.SetString("access_token", result);
+            PlayerPrefs.Save();
+            Click();
         }
     }
+
     private void Click()
     {
-        WaitScreen.gameObject.SetActive(true);
-        CreateMenu.gameObject.SetActive(false);
-    }
-    private void ShowError()
-    {
-        Error.enabled = true;
-        StartCoroutine(Wait());
-    }
-    IEnumerator Wait()
-    {
-        yield return new WaitForSeconds(3);
-        Error.enabled = false;
+        waitScreen.gameObject.SetActive(true);
+        createMenu.gameObject.SetActive(false);
     }
 }

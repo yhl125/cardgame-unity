@@ -755,10 +755,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 398d6dbf53bb4574e94af646765dc77a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Create: {fileID: 139030526}
-  CreateMenu: {fileID: 266984165}
-  WaitScreen: {fileID: 1140538739}
-  Error: {fileID: 0}
+  create: {fileID: 0}
+  createMenu: {fileID: 0}
+  waitScreen: {fileID: 0}
+  nameInputField: {fileID: 0}
 --- !u!114 &139030526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3195,10 +3195,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 398d6dbf53bb4574e94af646765dc77a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Create: {fileID: 402743664}
-  CreateMenu: {fileID: 266984165}
-  WaitScreen: {fileID: 1140538739}
-  Error: {fileID: 0}
+  create: {fileID: 0}
+  createMenu: {fileID: 0}
+  waitScreen: {fileID: 0}
+  nameInputField: {fileID: 0}
 --- !u!114 &402743664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5143,10 +5143,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 398d6dbf53bb4574e94af646765dc77a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Create: {fileID: 697155852}
-  CreateMenu: {fileID: 266984165}
-  WaitScreen: {fileID: 1140538739}
-  Error: {fileID: 0}
+  create: {fileID: 0}
+  createMenu: {fileID: 0}
+  waitScreen: {fileID: 0}
+  nameInputField: {fileID: 0}
 --- !u!114 &697155852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8626,10 +8626,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 398d6dbf53bb4574e94af646765dc77a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Create: {fileID: 1124177987}
-  CreateMenu: {fileID: 266984165}
-  WaitScreen: {fileID: 1140538739}
-  Error: {fileID: 0}
+  create: {fileID: 0}
+  createMenu: {fileID: 0}
+  waitScreen: {fileID: 0}
+  nameInputField: {fileID: 0}
 --- !u!114 &1124177987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13961,10 +13961,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 398d6dbf53bb4574e94af646765dc77a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Create: {fileID: 1909241850}
-  CreateMenu: {fileID: 446858124}
-  WaitScreen: {fileID: 1140538739}
-  Error: {fileID: 732864471}
+  create: {fileID: 1909241850}
+  createMenu: {fileID: 446858124}
+  waitScreen: {fileID: 1140538739}
+  nameInputField: {fileID: 1048771232}
 --- !u!1 &1969920895
 GameObject:
   m_ObjectHideFlags: 0
