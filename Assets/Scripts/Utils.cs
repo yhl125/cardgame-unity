@@ -1,3 +1,4 @@
+using System;
 using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -34,6 +35,13 @@ public static class Utils
         request.SetRequestHeader("Authorization", "Bearer " + PlayerPrefs.GetString("access_token"));
         return request;
     }
+    
+    public static UnityWebRequest AuthorizedPostUnityWebRequest(string uri, string postData)
+    {
+        var request = UnityWebRequest.Post(uri, postData);
+        request.SetRequestHeader("Authorization", "Bearer " + PlayerPrefs.GetString("access_token"));
+        return request;
+    }
 
     public static UnityWebRequest AuthorizedPutRequest(string uri, object body = null)
     {
@@ -64,5 +72,17 @@ public static class Utils
         request.SetRequestHeader("Content-Type", "application/json");
         request.timeout = 60;
         return request;
+    }
+
+    public static string ErrorMessage(string message)
+    {
+        return "{\"detail\":\"" + message + "\"}";
+    }
+
+    public static string RequestResult(UnityWebRequest request)
+    {
+        return request.result == UnityWebRequest.Result.ConnectionError
+            ? throw new Exception(request.error)
+            : request.downloadHandler.text;
     }
 }
