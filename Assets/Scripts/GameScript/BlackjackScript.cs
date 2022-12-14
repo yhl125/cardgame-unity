@@ -19,7 +19,7 @@ public class BlackjackScript : MonoBehaviour
     // public CardScript cardScript;
     public DeckScript deckScript;
 
-    // public TextMeshProUGUI notEnoughMoneyError, badRequestError;
+    public TextMeshProUGUI notEnoughMoneyError, badRequestError, playerCount;
     public TextMeshProUGUI money, bet;
     public TextMeshProUGUI user0Name, user1Name, user2Name, user3Name;
     public SpriteRenderer user0Card0, user0Card1, user0Card2, user0Card3, user0Card4, user0Card5;
@@ -171,10 +171,7 @@ public class BlackjackScript : MonoBehaviour
                 }
             }
         }
-
-        // money.text = (_money - _bet).ToString();
-        // bet.text = _bet.ToString();
-
+        
         if (_user0Hand != null)
         {
             for (var i = 0; i < _user0Hand.Count; i++)
@@ -314,6 +311,8 @@ public class BlackjackScript : MonoBehaviour
                 }
             }
         }
+        money.text = (_money - _bet).ToString();
+        bet.text = _bet.ToString();
     }
 
 
@@ -362,12 +361,12 @@ public class BlackjackScript : MonoBehaviour
             user3Name.text = _user3Name;
             if (_currentGame.status == "end")
             {
-                // playerCount.enabled = true;
-                // playerCount.SetText("(" + _readyCount + "/" + _count + " Players)");
+                playerCount.enabled = true;
+                playerCount.SetText("(" + _readyCount + "/" + _count + " Players)");
             }
             else
             {
-                // playerCount.enabled = false;
+                playerCount.enabled = false;
             }
         }
     }
@@ -382,18 +381,18 @@ public class BlackjackScript : MonoBehaviour
             var result = Utils.RequestResult(request);
             if (result == Utils.ErrorMessage("Not enough money"))
             {
-                // notEnoughMoneyError.enabled = true;
-                // StartCoroutine(WaitNotEnoughMoney());
+                notEnoughMoneyError.enabled = true;
+                StartCoroutine(WaitNotEnoughMoney());
             }
             else if (result == Utils.ErrorMessage("game is not waiting bet"))
             {
-                // badRequestError.enabled = true;
-                // StartCoroutine(WaitBadRequest());
+                badRequestError.enabled = true;
+                StartCoroutine(WaitBadRequest());
             }
             else if (result == Utils.ErrorMessage("bet must be more than 0"))
             {
-                // badRequestError.enabled = true;
-                // StartCoroutine(WaitBadRequest());
+                badRequestError.enabled = true;
+                StartCoroutine(WaitBadRequest());
             }
 
             var blackjackGame = JsonConvert.DeserializeObject<BlackjackGame>(result);
@@ -427,8 +426,8 @@ public class BlackjackScript : MonoBehaviour
             var result = Utils.RequestResult(request);
             if (result == Utils.ErrorMessage("game is not waiting choice"))
             {
-                // badRequestError.enabled = true;
-                // StartCoroutine(WaitBadRequest());
+                badRequestError.enabled = true;
+                StartCoroutine(WaitBadRequest());
             }
 
             var blackjackGame = JsonConvert.DeserializeObject<BlackjackGame>(result);
@@ -447,18 +446,18 @@ public class BlackjackScript : MonoBehaviour
             var result = Utils.RequestResult(request);
             if (result == Utils.ErrorMessage("Not enough money"))
             {
-                // notEnoughMoneyError.enabled = true;
-                // StartCoroutine(WaitNotEnoughMoney());
+                notEnoughMoneyError.enabled = true;
+                StartCoroutine(WaitNotEnoughMoney());
             }
             else if (result == Utils.ErrorMessage("game is not waiting choice"))
             {
-                // badRequestError.enabled = true;
-                // StartCoroutine(WaitBadRequest());
+                badRequestError.enabled = true;
+                StartCoroutine(WaitBadRequest());
             }
             else if (result == Utils.ErrorMessage("can't double down"))
             {
-                // badRequestError.enabled = true;
-                // StartCoroutine(WaitBadRequest());
+                badRequestError.enabled = true;
+                StartCoroutine(WaitBadRequest());
             }
 
             var blackjackGame = JsonConvert.DeserializeObject<BlackjackGame>(result);
@@ -501,8 +500,8 @@ public class BlackjackScript : MonoBehaviour
     {
         if (amount > _money)
         {
-            // notEnoughMoneyError.enabled = true;
-            // StartCoroutine(WaitNotEnoughMoney());
+            notEnoughMoneyError.enabled = true;
+            StartCoroutine(WaitNotEnoughMoney());
             yield break;
         }
 
@@ -551,13 +550,13 @@ public class BlackjackScript : MonoBehaviour
     private IEnumerator WaitNotEnoughMoney()
     {
         yield return new WaitForSeconds(3);
-        // notEnoughMoneyError.enabled = false;
+        notEnoughMoneyError.enabled = false;
     }
 
     private IEnumerator WaitBadRequest()
     {
         yield return new WaitForSeconds(3);
-        // badRequestError.enabled = false;
+        badRequestError.enabled = false;
     }
 
     private int CardToNumber(Card card)
