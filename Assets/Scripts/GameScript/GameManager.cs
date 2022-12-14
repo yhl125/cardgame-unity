@@ -1,11 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -26,39 +21,42 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        // Add on click listeners to the buttons
-        MainMenuBtn.gameObject.SetActive(false);
-        DepositeBtn.gameObject.SetActive(false);
-        WithdrawBtn.gameObject.SetActive(false);
-        MenuBtn.onClick.AddListener(() => MenuClicked());
-        MainMenuBtn.onClick.AddListener(() => MainMenuClicked());
-        DepositeBtn.onClick.AddListener(() => DepositeClicked());
-        WithdrawBtn.onClick.AddListener(() => WithdrawClicked());
-        for (int i = 0; i < players.Length(); ++i){
-            players[i].ResetHand();
-        }
-        dealerScript.ResetHand();
+        // // Add on click listeners to the buttons
+        // MainMenuBtn.gameObject.SetActive(false);
+        // DepositeBtn.gameObject.SetActive(false);
+        // WithdrawBtn.gameObject.SetActive(false);
+        // MenuBtn.onClick.AddListener(() => MenuClicked());
+        // MainMenuBtn.onClick.AddListener(() => MainMenuClicked());
+        // DepositeBtn.onClick.AddListener(() => DepositeClicked());
+        // WithdrawBtn.onClick.AddListener(() => WithdrawClicked());
+        // for (int i = 0; i < players.Length(); ++i){
+        //     players[i].ResetHand();
+        // }
+        // dealerScript.ResetHand();
         hideCard.GetComponent<Renderer>().enabled = false;
         mainText.gameObject.SetActive(false);
     }
 
     private void MenuClicked()
     {
-        MainMenuBtn.gameObject.SetActive(true);
-        DepositeBtn.gameObject.SetActive(true);
-        WithdrawBtn.gameObject.SetActive(true);
+        // MainMenuBtn.gameObject.SetActive(true);
+        // DepositeBtn.gameObject.SetActive(true);
+        // WithdrawBtn.gameObject.SetActive(true);
     }
+
     private void MainMenuClicked()
     {
         SceneManager.LoadScene("MainMenu"); //될지는 확실하지 않음, 메인메뉴로 이동해야 된다.
     }
+
     private void WithdrawClicked()
     {
         SceneManager.LoadScene("MainMenu"); //될지는 확실하지 않음
     }
+}
 
 
-    // ____________________________ 이 밑에는 다른 코드에서 가져온 부분 ________________________________
+// ____________________________ 이 밑에는 다른 코드에서 가져온 부분 ________________________________
 //     private void DealClicked()
 //     {
 
@@ -184,7 +182,7 @@ public class GameManager : MonoBehaviour
 //                 endBtn.gameObject.SetActive(true);
 //                 restartBtn.gameObject.SetActive(true);
 //             }
-                
+
 //         }
 //     }
 
