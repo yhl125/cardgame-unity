@@ -11,6 +11,7 @@ public class PlayerScript : MonoBehaviour
 
     // Array of card objects on table
     public GameObject[] hand;
+    public GameObject[] chips;
     // Index of next card to be turned over
     public int cardIndex = 0;
 
