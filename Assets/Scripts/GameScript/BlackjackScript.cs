@@ -17,19 +17,19 @@ public class BlackjackScript : MonoBehaviour
     private readonly string _blackjackUri = Environment.GetEnvironmentVariable("API_URI") + "/blackjack";
 
     // public CardScript cardScript;
-    // public DeckScript deckScript;
+    public DeckScript deckScript;
     public TextMeshProUGUI notEnoughMoneyError, badRequestError;
     public TextMeshProUGUI money, bet, playerCount;
+    public TextMeshProUGUI user0Name, user1Name, user2Name, user3Name;
+    public SpriteRenderer user0Card0, user0Card1, user0Card2, user0Card3, user0Card4, user0Card5;
+    public SpriteRenderer user1Card0, user1Card1, user1Card2, user1Card3, user1Card4, user1Card5;
+    public SpriteRenderer user2Card0, user2Card1, user2Card2, user2Card3, user2Card4, user2Card5;
+    public SpriteRenderer user3Card0, user3Card1, user3Card2, user3Card3, user3Card4, user3Card5;
+    public SpriteRenderer dealerCard0, dealerCard1, dealerCard2, dealerCard3, dealerCard4, dealerCard5;
 
     private string _myName, _myStatus;
     private int _money; // current money
     private int _bet; // current bet
-
-    // // Array of card objects on table
-    // public GameObject[] hand;
-    //
-    // // Index of next card to be turned over
-    // public int cardIndex = 0;
 
     private BlackjackGame _currentGame;
     private float _timePassed;
@@ -172,6 +172,130 @@ public class BlackjackScript : MonoBehaviour
 
             money.text = (_money - _bet).ToString();
             bet.text = _bet.ToString();
+            for (var i = 0; i < _user0Hand.Count; i++)
+            {
+                switch (i)
+                {
+                    case 0:
+                        RenderCard(_user0Hand[i], user0Card0);
+                        break;
+                    case 1:
+                        RenderCard(_user0Hand[i], user0Card1);
+                        break;
+                    case 2:
+                        RenderCard(_user0Hand[i], user0Card2);
+                        break;
+                    case 3:
+                        RenderCard(_user0Hand[i], user0Card3);
+                        break;
+                    case 4:
+                        RenderCard(_user0Hand[i], user0Card4);
+                        break;
+                    case 5:
+                        RenderCard(_user0Hand[i], user0Card5);
+                        break;
+                }
+            }
+
+            for (var i = 0; i < _user1Hand.Count; i++)
+            {
+                switch (i)
+                {
+                    case 0:
+                        RenderCard(_user1Hand[i], user1Card0);
+                        break;
+                    case 1:
+                        RenderCard(_user1Hand[i], user1Card1);
+                        break;
+                    case 2:
+                        RenderCard(_user1Hand[i], user1Card2);
+                        break;
+                    case 3:
+                        RenderCard(_user1Hand[i], user1Card3);
+                        break;
+                    case 4:
+                        RenderCard(_user1Hand[i], user1Card4);
+                        break;
+                    case 5:
+                        RenderCard(_user1Hand[i], user1Card5);
+                        break;
+                }
+            }
+
+            for (var i = 0; i < _user2Hand.Count; i++)
+            {
+                switch (i)
+                {
+                    case 0:
+                        RenderCard(_user2Hand[i], user2Card0);
+                        break;
+                    case 1:
+                        RenderCard(_user2Hand[i], user2Card1);
+                        break;
+                    case 2:
+                        RenderCard(_user2Hand[i], user2Card2);
+                        break;
+                    case 3:
+                        RenderCard(_user2Hand[i], user2Card3);
+                        break;
+                    case 4:
+                        RenderCard(_user2Hand[i], user2Card4);
+                        break;
+                    case 5:
+                        RenderCard(_user2Hand[i], user2Card5);
+                        break;
+                }
+            }
+
+            for (var i = 0; i < _user3Hand.Count; i++)
+            {
+                switch (i)
+                {
+                    case 0:
+                        RenderCard(_user3Hand[i], user3Card0);
+                        break;
+                    case 1:
+                        RenderCard(_user3Hand[i], user3Card1);
+                        break;
+                    case 2:
+                        RenderCard(_user3Hand[i], user3Card2);
+                        break;
+                    case 3:
+                        RenderCard(_user3Hand[i], user3Card3);
+                        break;
+                    case 4:
+                        RenderCard(_user3Hand[i], user3Card4);
+                        break;
+                    case 5:
+                        RenderCard(_user3Hand[i], user3Card5);
+                        break;
+                }
+            }
+
+            for (var i = 0; i < _dealerHand.Count; i++)
+            {
+                switch (i)
+                {
+                    case 0:
+                        RenderCard(_dealerHand[i], dealerCard0);
+                        break;
+                    case 1:
+                        RenderCard(_dealerHand[i], dealerCard1);
+                        break;
+                    case 2:
+                        RenderCard(_dealerHand[i], dealerCard2);
+                        break;
+                    case 3:
+                        RenderCard(_dealerHand[i], dealerCard3);
+                        break;
+                    case 4:
+                        RenderCard(_dealerHand[i], dealerCard4);
+                        break;
+                    case 5:
+                        RenderCard(_dealerHand[i], dealerCard5);
+                        break;
+                }
+            }
         }
     }
 
@@ -214,6 +338,10 @@ public class BlackjackScript : MonoBehaviour
                         break;
                 }
             }
+            user0Name.text = _user0Name;
+            user1Name.text = _user1Name;
+            user2Name.text = _user2Name;
+            user3Name.text = _user3Name;
 
             if (_currentGame.status == "end")
             {
@@ -415,7 +543,7 @@ public class BlackjackScript : MonoBehaviour
         badRequestError.enabled = false;
     }
 
-    public int CardToNumber(Card card)
+    private int CardToNumber(Card card)
     {
         var value = card.suit switch
         {
@@ -470,6 +598,14 @@ public class BlackjackScript : MonoBehaviour
         }
 
         return value;
+    }
+
+    // Render the card with SpriteRenderer
+    private void RenderCard(Card card, SpriteRenderer spriteRenderer)
+    {
+        var value = CardToNumber(card);
+        spriteRenderer.sprite = deckScript.cardSprites[value];
+        spriteRenderer.enabled = true;
     }
 }
 
