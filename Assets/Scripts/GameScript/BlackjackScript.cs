@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class BlackjackScript : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class BlackjackScript : MonoBehaviour
     // public CardScript cardScript;
     // public DeckScript deckScript;
     public TextMeshProUGUI notEnoughMoneyError, badRequestError;
-    public TextMeshProUGUI money, bet;
+    public TextMeshProUGUI money, bet, playerCount;
 
     private string _myName, _myStatus;
     private int _money; // current money
@@ -41,7 +42,7 @@ public class BlackjackScript : MonoBehaviour
     private TcpListener _listener;
     private const int Port = 9999;
 
-    private readonly Queue<string> _queue = new Queue<string>(); //string형태의 que생성
+    private readonly Queue<string> _queue = new(); //string형태의 que생성
 
     void Start()
     {
@@ -125,6 +126,7 @@ public class BlackjackScript : MonoBehaviour
                         break;
                     case "quit":
                         StartCoroutine(LeaveGame(PlayerPrefs.GetString("gameId")));
+                        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
                         break;
                 }
             }
@@ -167,6 +169,9 @@ public class BlackjackScript : MonoBehaviour
                         break;
                 }
             }
+
+            money.text = (_money - _bet).ToString();
+            bet.text = _bet.ToString();
         }
     }
 
@@ -208,6 +213,16 @@ public class BlackjackScript : MonoBehaviour
                         if (_myName == _user3Name) _myStatus = blackjackGame.players[i].status;
                         break;
                 }
+            }
+
+            if (_currentGame.status == "end")
+            {
+                playerCount.enabled = true;
+                playerCount.SetText("(" + _readyCount + "/" + _count + " Players)");
+            }
+            else
+            {
+                playerCount.enabled = false;
             }
         }
     }
