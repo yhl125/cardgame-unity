@@ -14,7 +14,6 @@ public class WaitingPlayer : MonoBehaviour
     public TextMeshProUGUI playerCount;
     public Button back;
     public Button ready;
-    public Button undo;
     public Canvas join;
     public Canvas wait;
 
@@ -26,19 +25,23 @@ public class WaitingPlayer : MonoBehaviour
     void Start()
     {
         StartCoroutine(GetGame(PlayerPrefs.GetString("gameId")));
-
+        bool Ready = false;
         ready.onClick.AddListener(() =>
         {
-            ready.enabled = false;
-            undo.enabled = true;
-            StartCoroutine(ReadyGame(PlayerPrefs.GetString("gameId")));
+            if (!Ready)
+            {
+                ready.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "UNDO";
+                StartCoroutine(ReadyGame(PlayerPrefs.GetString("gameId")));
+                Ready = true;
+            }
+            else if (Ready)
+            {
+                ready.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "READY";
+                StartCoroutine(UndoReadyGame(PlayerPrefs.GetString("gameId")));
+                Ready = false;
+            }
         });
-        undo.onClick.AddListener(() =>
-        {
-            ready.enabled = true;
-            undo.enabled = false;
-            StartCoroutine(UndoReadyGame(PlayerPrefs.GetString("gameId")));
-        });
+        
         back.onClick.AddListener(() => { StartCoroutine(LeaveGame(PlayerPrefs.GetString("gameId"))); });
     }
 
