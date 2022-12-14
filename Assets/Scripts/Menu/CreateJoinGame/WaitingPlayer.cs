@@ -110,7 +110,6 @@ public class WaitingPlayer : MonoBehaviour
     {
         using (var request = UnityWebRequest.Get(_uri + "/game?game_id=" + gameId))
         {
-            Debug.Log("get");
             yield return request.SendWebRequest();
 
             var result = Utils.RequestResult(request);

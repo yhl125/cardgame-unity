@@ -78,3 +78,9 @@ public class LogIn : MonoBehaviour
         notExistError.enabled = false;
     }
 }
+
+internal class LoginInput
+{
+    public string name;
+    public string password;
+}
