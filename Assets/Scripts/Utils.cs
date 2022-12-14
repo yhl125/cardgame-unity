@@ -35,6 +35,13 @@ public static class Utils
         request.SetRequestHeader("Authorization", "Bearer " + PlayerPrefs.GetString("access_token"));
         return request;
     }
+    
+    public static UnityWebRequest AuthorizedPostUnityWebRequest(string uri, string postData)
+    {
+        var request = UnityWebRequest.Post(uri, postData);
+        request.SetRequestHeader("Authorization", "Bearer " + PlayerPrefs.GetString("access_token"));
+        return request;
+    }
 
     public static UnityWebRequest AuthorizedPutRequest(string uri, object body = null)
     {
