@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 public class WaitingPlayer : MonoBehaviour
 {
-    private readonly string _uri = Environment.GetEnvironmentVariable("API_URI") + "/blackjack";
+    private const string Uri = PlatformConfig.APIUri + "/blackjack";
 
     public TextMeshProUGUI playerCount;
     public Button back;
@@ -64,7 +64,7 @@ public class WaitingPlayer : MonoBehaviour
 
     private IEnumerator LeaveGame(string gameId)
     {
-        using (var request = Utils.AuthorizedPostUnityWebRequest(_uri + "/game/leave", gameId))
+        using (var request = Utils.AuthorizedPostUnityWebRequest(Uri + "/game/leave", gameId))
         {
             yield return request.SendWebRequest();
 
@@ -81,7 +81,7 @@ public class WaitingPlayer : MonoBehaviour
 
     private IEnumerator ReadyGame(string gameId)
     {
-        using (var request = Utils.AuthorizedPostUnityWebRequest(_uri + "/ready", gameId))
+        using (var request = Utils.AuthorizedPostUnityWebRequest(Uri + "/ready", gameId))
         {
             yield return request.SendWebRequest();
 
@@ -96,7 +96,7 @@ public class WaitingPlayer : MonoBehaviour
 
     private IEnumerator UndoReadyGame(string gameId)
     {
-        using (var request = Utils.AuthorizedPostUnityWebRequest(_uri + "/ready/undo", gameId))
+        using (var request = Utils.AuthorizedPostUnityWebRequest(Uri + "/ready/undo", gameId))
         {
             yield return request.SendWebRequest();
 
@@ -111,7 +111,7 @@ public class WaitingPlayer : MonoBehaviour
 
     private IEnumerator GetGame(string gameId)
     {
-        using (var request = UnityWebRequest.Get(_uri + "/game?game_id=" + gameId))
+        using (var request = UnityWebRequest.Get(Uri + "/game?game_id=" + gameId))
         {
             yield return request.SendWebRequest();
 

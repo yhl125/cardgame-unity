@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class LogIn : MonoBehaviour
 {
-    private readonly string _uri = Environment.GetEnvironmentVariable("API_URI") + "/user";
+    private const string Uri = PlatformConfig.APIUri + "/user";
 
     public Button enter;
     public Canvas mainMenu;
@@ -25,7 +25,7 @@ public class LogIn : MonoBehaviour
     private IEnumerator Login(string userName, string password)
     {
         var sampleUpdateInput = new LoginInput { name = userName, password = password };
-        using (var request = Utils.CreateApiPostRequest(_uri + "/login", sampleUpdateInput))
+        using (var request = Utils.CreateApiPostRequest(Uri + "/login", sampleUpdateInput))
         {
             yield return request.SendWebRequest();
 

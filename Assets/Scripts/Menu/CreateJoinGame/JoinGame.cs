@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 public class JoinGame : MonoBehaviour
 {
-    private readonly string _uri = Environment.GetEnvironmentVariable("API_URI") + "/blackjack";
+    private readonly string _uri = PlatformConfig.APIUri + "/blackjack";
 
     public TextMeshProUGUI select, full;
     public Canvas join;

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class CreateAccount : MonoBehaviour
 {
-    private readonly string _uri = Environment.GetEnvironmentVariable("API_URI") + "/user";
+    private const string Uri = PlatformConfig.APIUri + "/user";
 
     public Button create;
     public Canvas accountCreated;
@@ -24,7 +24,7 @@ public class CreateAccount : MonoBehaviour
     private IEnumerator Signup(string userName, string password)
     {
         var sampleUpdateInput = new LoginInput { name = userName, password = password };
-        using (var request = Utils.CreateApiPostRequest(_uri + "/signup", sampleUpdateInput))
+        using (var request = Utils.CreateApiPostRequest(Uri + "/signup", sampleUpdateInput))
         {
             yield return request.SendWebRequest();
 

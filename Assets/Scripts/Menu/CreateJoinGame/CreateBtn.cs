@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class CreateBtn : MonoBehaviour
 {
-    private readonly string _uri = Environment.GetEnvironmentVariable("API_URI") + "/blackjack";
+    private const string Uri = PlatformConfig.APIUri + "/blackjack";
 
     public Button create;
     public Canvas createMenu;
@@ -22,7 +22,7 @@ public class CreateBtn : MonoBehaviour
 
     private IEnumerator CreateGame(string gameName)
     {
-        using (var request = Utils.AuthorizedPostUnityWebRequest(_uri + "/create", gameName))
+        using (var request = Utils.AuthorizedPostUnityWebRequest(Uri + "/create", gameName))
         {
             yield return request.SendWebRequest();
 
