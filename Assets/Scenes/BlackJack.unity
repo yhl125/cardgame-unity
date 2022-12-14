@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311915, g: 0.3807396, b: 0.35872662, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -390,7 +390,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 37891971}
-  - component: {fileID: 37891972}
   m_Layer: 5
   m_Name: Player4
   m_TagString: Untagged
@@ -438,38 +437,6 @@ RectTransform:
   m_AnchoredPosition: {x: 270, y: 52}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &37891972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 37891970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51d9f7e0e7b77114387768a044f63152, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cardScript: {fileID: 472222489}
-  deckScript: {fileID: 1231528320}
-  hand:
-  - {fileID: 682015548}
-  - {fileID: 853607428}
-  - {fileID: 453145770}
-  - {fileID: 628226037}
-  - {fileID: 1434051712}
-  - {fileID: 566296951}
-  - {fileID: 1282520468}
-  - {fileID: 577609680}
-  - {fileID: 7541821}
-  - {fileID: 1328184617}
-  chips:
-  - {fileID: 1047629704}
-  - {fileID: 2036257370}
-  - {fileID: 1575961614}
-  - {fileID: 887622293}
-  - {fileID: 377107027}
-  cardIndex: 0
 --- !u!1 &57058180
 GameObject:
   m_ObjectHideFlags: 0
@@ -1853,21 +1820,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51d9f7e0e7b77114387768a044f63152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardScript: {fileID: 472222489}
-  deckScript: {fileID: 1231528320}
-  hand:
-  - {fileID: 472222486}
-  - {fileID: 2069814244}
-  - {fileID: 1919335488}
-  - {fileID: 1911101425}
-  - {fileID: 205581300}
-  - {fileID: 197279284}
-  - {fileID: 1205587237}
-  - {fileID: 480810521}
-  - {fileID: 122780102}
-  - {fileID: 216278832}
-  chips: []
-  cardIndex: 0
+  deckScript: {fileID: 0}
+  notEnoughMoneyError: {fileID: 0}
+  badRequestError: {fileID: 0}
+  money: {fileID: 0}
+  bet: {fileID: 0}
+  playerCount: {fileID: 0}
+  user0Name: {fileID: 0}
+  user1Name: {fileID: 0}
+  user2Name: {fileID: 0}
+  user3Name: {fileID: 0}
+  user0Card0: {fileID: 0}
+  user0Card1: {fileID: 0}
+  user0Card2: {fileID: 0}
+  user0Card3: {fileID: 0}
+  user0Card4: {fileID: 0}
+  user0Card5: {fileID: 0}
+  user1Card0: {fileID: 0}
+  user1Card1: {fileID: 0}
+  user1Card2: {fileID: 0}
+  user1Card3: {fileID: 0}
+  user1Card4: {fileID: 0}
+  user1Card5: {fileID: 0}
+  user2Card0: {fileID: 0}
+  user2Card1: {fileID: 0}
+  user2Card2: {fileID: 0}
+  user2Card3: {fileID: 0}
+  user2Card4: {fileID: 0}
+  user2Card5: {fileID: 0}
+  user3Card0: {fileID: 0}
+  user3Card1: {fileID: 0}
+  user3Card2: {fileID: 0}
+  user3Card3: {fileID: 0}
+  user3Card4: {fileID: 0}
+  user3Card5: {fileID: 0}
+  dealerCard0: {fileID: 0}
+  dealerCard1: {fileID: 0}
+  dealerCard2: {fileID: 0}
+  dealerCard3: {fileID: 0}
+  dealerCard4: {fileID: 0}
+  dealerCard5: {fileID: 0}
 --- !u!1 &237290642
 GameObject:
   m_ObjectHideFlags: 0
@@ -3985,17 +3977,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51d9f7e0e7b77114387768a044f63152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardScript: {fileID: 472222489}
-  deckScript: {fileID: 1231528320}
-  hand:
-  - {fileID: 682015548}
-  - {fileID: 853607428}
-  - {fileID: 453145770}
-  - {fileID: 628226037}
-  - {fileID: 1434051712}
-  - {fileID: 566296951}
-  chips: []
-  cardIndex: 0
+  deckScript: {fileID: 0}
+  notEnoughMoneyError: {fileID: 0}
+  badRequestError: {fileID: 0}
+  money: {fileID: 0}
+  bet: {fileID: 0}
+  playerCount: {fileID: 0}
+  user0Name: {fileID: 0}
+  user1Name: {fileID: 0}
+  user2Name: {fileID: 0}
+  user3Name: {fileID: 0}
+  user0Card0: {fileID: 0}
+  user0Card1: {fileID: 0}
+  user0Card2: {fileID: 0}
+  user0Card3: {fileID: 0}
+  user0Card4: {fileID: 0}
+  user0Card5: {fileID: 0}
+  user1Card0: {fileID: 0}
+  user1Card1: {fileID: 0}
+  user1Card2: {fileID: 0}
+  user1Card3: {fileID: 0}
+  user1Card4: {fileID: 0}
+  user1Card5: {fileID: 0}
+  user2Card0: {fileID: 0}
+  user2Card1: {fileID: 0}
+  user2Card2: {fileID: 0}
+  user2Card3: {fileID: 0}
+  user2Card4: {fileID: 0}
+  user2Card5: {fileID: 0}
+  user3Card0: {fileID: 0}
+  user3Card1: {fileID: 0}
+  user3Card2: {fileID: 0}
+  user3Card3: {fileID: 0}
+  user3Card4: {fileID: 0}
+  user3Card5: {fileID: 0}
+  dealerCard0: {fileID: 0}
+  dealerCard1: {fileID: 0}
+  dealerCard2: {fileID: 0}
+  dealerCard3: {fileID: 0}
+  dealerCard4: {fileID: 0}
+  dealerCard5: {fileID: 0}
 --- !u!1 &707474524
 GameObject:
   m_ObjectHideFlags: 0
@@ -5579,7 +5600,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 855189125}
-  - component: {fileID: 855189126}
   m_Layer: 5
   m_Name: Player2
   m_TagString: Untagged
@@ -5627,38 +5647,6 @@ RectTransform:
   m_AnchoredPosition: {x: -140, y: -62}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &855189126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 855189124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51d9f7e0e7b77114387768a044f63152, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cardScript: {fileID: 472222489}
-  deckScript: {fileID: 1231528320}
-  hand:
-  - {fileID: 1191008691}
-  - {fileID: 1268974023}
-  - {fileID: 464012221}
-  - {fileID: 797667199}
-  - {fileID: 826774146}
-  - {fileID: 768582277}
-  - {fileID: 1449231961}
-  - {fileID: 604912442}
-  - {fileID: 758014476}
-  - {fileID: 806614585}
-  chips:
-  - {fileID: 1654864013}
-  - {fileID: 1429473051}
-  - {fileID: 13858734}
-  - {fileID: 2052856751}
-  - {fileID: 2051648821}
-  cardIndex: 0
 --- !u!1 &887622293
 GameObject:
   m_ObjectHideFlags: 0
@@ -6004,7 +5992,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 979993787}
-  - component: {fileID: 979993788}
   m_Layer: 5
   m_Name: Dealer
   m_TagString: Untagged
@@ -6042,33 +6029,6 @@ RectTransform:
   m_AnchoredPosition: {x: 50, y: 100}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &979993788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 979993786}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51d9f7e0e7b77114387768a044f63152, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cardScript: {fileID: 472222489}
-  deckScript: {fileID: 1231528320}
-  hand:
-  - {fileID: 455704819}
-  - {fileID: 276346660}
-  - {fileID: 1753448390}
-  - {fileID: 475510474}
-  - {fileID: 367249191}
-  - {fileID: 1798465076}
-  - {fileID: 1998285577}
-  - {fileID: 1697948265}
-  - {fileID: 1405715225}
-  - {fileID: 1879063626}
-  chips: []
-  cardIndex: 0
 --- !u!1 &1047629704
 GameObject:
   m_ObjectHideFlags: 0
@@ -6162,7 +6122,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1106191546}
-  - component: {fileID: 1106191547}
   m_Layer: 5
   m_Name: Player3
   m_TagString: Untagged
@@ -6210,38 +6169,6 @@ RectTransform:
   m_AnchoredPosition: {x: 76.6, y: -94.34}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1106191547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1106191545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51d9f7e0e7b77114387768a044f63152, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cardScript: {fileID: 472222489}
-  deckScript: {fileID: 1231528320}
-  hand:
-  - {fileID: 136906469}
-  - {fileID: 57058180}
-  - {fileID: 826747702}
-  - {fileID: 757892213}
-  - {fileID: 1464566252}
-  - {fileID: 1329575319}
-  - {fileID: 171902038}
-  - {fileID: 528663910}
-  - {fileID: 972331653}
-  - {fileID: 1585225053}
-  chips:
-  - {fileID: 1174920020}
-  - {fileID: 1186920606}
-  - {fileID: 805624709}
-  - {fileID: 1629627327}
-  - {fileID: 1265199631}
-  cardIndex: 0
 --- !u!1 &1111794207
 GameObject:
   m_ObjectHideFlags: 0
@@ -11631,6 +11558,103 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1974639184}
   m_CullTransparentMesh: 1
+--- !u!1 &1989955501
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1989955504}
+  - component: {fileID: 1989955503}
+  - component: {fileID: 1989955502}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1989955502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989955501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51d9f7e0e7b77114387768a044f63152, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deckScript: {fileID: 0}
+  notEnoughMoneyError: {fileID: 0}
+  badRequestError: {fileID: 0}
+  money: {fileID: 0}
+  bet: {fileID: 0}
+  playerCount: {fileID: 0}
+  user0Name: {fileID: 0}
+  user1Name: {fileID: 0}
+  user2Name: {fileID: 0}
+  user3Name: {fileID: 0}
+  user0Card0: {fileID: 472222488}
+  user0Card1: {fileID: 2069814246}
+  user0Card2: {fileID: 1919335490}
+  user0Card3: {fileID: 1911101427}
+  user0Card4: {fileID: 205581302}
+  user0Card5: {fileID: 197279286}
+  user1Card0: {fileID: 0}
+  user1Card1: {fileID: 0}
+  user1Card2: {fileID: 0}
+  user1Card3: {fileID: 0}
+  user1Card4: {fileID: 0}
+  user1Card5: {fileID: 0}
+  user2Card0: {fileID: 0}
+  user2Card1: {fileID: 0}
+  user2Card2: {fileID: 0}
+  user2Card3: {fileID: 0}
+  user2Card4: {fileID: 0}
+  user2Card5: {fileID: 0}
+  user3Card0: {fileID: 0}
+  user3Card1: {fileID: 0}
+  user3Card2: {fileID: 0}
+  user3Card3: {fileID: 0}
+  user3Card4: {fileID: 0}
+  user3Card5: {fileID: 0}
+  dealerCard0: {fileID: 0}
+  dealerCard1: {fileID: 0}
+  dealerCard2: {fileID: 0}
+  dealerCard3: {fileID: 0}
+  dealerCard4: {fileID: 0}
+  dealerCard5: {fileID: 0}
+--- !u!114 &1989955503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989955501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad18f2307d703479aad4d37e2b054508, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1989955504
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989955501}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 50.0613, y: -3.7003388, z: 488.42764}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1998285577
 GameObject:
   m_ObjectHideFlags: 0
@@ -12332,7 +12356,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2071590082}
-  - component: {fileID: 2071590083}
   m_Layer: 5
   m_Name: Player1
   m_TagString: Untagged
@@ -12380,38 +12403,6 @@ RectTransform:
   m_AnchoredPosition: {x: -270, y: 52}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2071590083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2071590081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51d9f7e0e7b77114387768a044f63152, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cardScript: {fileID: 472222489}
-  deckScript: {fileID: 1231528320}
-  hand:
-  - {fileID: 472222486}
-  - {fileID: 2069814244}
-  - {fileID: 1919335488}
-  - {fileID: 1911101425}
-  - {fileID: 205581300}
-  - {fileID: 197279284}
-  - {fileID: 1205587237}
-  - {fileID: 480810521}
-  - {fileID: 122780102}
-  - {fileID: 216278832}
-  chips:
-  - {fileID: 1490042341}
-  - {fileID: 2002467502}
-  - {fileID: 1136123541}
-  - {fileID: 1589106197}
-  - {fileID: 1829258637}
-  cardIndex: 0
 --- !u!1 &2083142424
 GameObject:
   m_ObjectHideFlags: 0
