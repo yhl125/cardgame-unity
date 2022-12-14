@@ -22,7 +22,7 @@ public class CreateBtn : MonoBehaviour
 
     private IEnumerator CreateGame(string gameName)
     {
-        using (var request = UnityWebRequest.Post(_uri + "/create", gameName))
+        using (var request = Utils.AuthorizedPostUnityWebRequest(_uri + "/create", gameName))
         {
             yield return request.SendWebRequest();
 
