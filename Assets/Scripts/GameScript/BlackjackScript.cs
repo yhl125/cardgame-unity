@@ -414,6 +414,63 @@ public class BlackjackScript : MonoBehaviour
         yield return new WaitForSeconds(3);
         badRequestError.enabled = false;
     }
+
+    public int CardToNumber(Card card)
+    {
+        var value = card.suit switch
+        {
+            "Hearts ♥" => 0,
+            "Diamonds ♦" => 13,
+            "Spades ♠" => 26,
+            "Clubs ♣" => 39,
+            _ => 0
+        };
+
+        switch (card.rank)
+        {
+            case "A":
+                value += 1;
+                break;
+            case "2":
+                value += 2;
+                break;
+            case "3":
+                value += 3;
+                break;
+            case "4":
+                value += 4;
+                break;
+            case "5":
+                value += 5;
+                break;
+            case "6":
+                value += 6;
+                break;
+            case "7":
+                value += 7;
+                break;
+            case "8":
+                value += 8;
+                break;
+            case "9":
+                value += 9;
+                break;
+            case "10":
+                value += 10;
+                break;
+            case "J":
+                value += 11;
+                break;
+            case "K":
+                value += 12;
+                break;
+            case "Q":
+                value += 13;
+                break;
+        }
+
+        return value;
+    }
 }
 
 internal class BetInput
