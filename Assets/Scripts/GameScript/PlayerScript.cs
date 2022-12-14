@@ -52,7 +52,7 @@ public class PlayerScript : MonoBehaviour
         GetCard();
         GetCard();
     }
-    
+
     // Recieve card from Server.
     public void GetCard()
     {
@@ -62,20 +62,19 @@ public class PlayerScript : MonoBehaviour
         // Add card value to running total of the hand
         cardIndex++;
     }
-    
+
     // Recieve hand of the player from the server
     public void GetHand()
     {
-        
     }
-    
+
     // Get current Money from server
     public void GetMoney()
     {
         int amount = 0;
         _money = amount;
     }
-    
+
     // Hides all cards, resets the needed variables
     public void ResetHand()
     {
@@ -84,7 +83,7 @@ public class PlayerScript : MonoBehaviour
             hand[i].GetComponent<CardScript>().ResetCard();
             hand[i].GetComponent<Renderer>().enabled = false;
         }
-    
+
         cardIndex = 0;
     }
 
