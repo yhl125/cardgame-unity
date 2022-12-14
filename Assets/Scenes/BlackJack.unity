@@ -1720,7 +1720,6 @@ GameObject:
   - component: {fileID: 216278833}
   - component: {fileID: 216278835}
   - component: {fileID: 216278834}
-  - component: {fileID: 216278836}
   m_Layer: 0
   m_Name: Card (9)
   m_TagString: Untagged
@@ -1808,58 +1807,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &216278836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 216278832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51d9f7e0e7b77114387768a044f63152, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deckScript: {fileID: 0}
-  notEnoughMoneyError: {fileID: 0}
-  badRequestError: {fileID: 0}
-  money: {fileID: 0}
-  bet: {fileID: 0}
-  playerCount: {fileID: 0}
-  user0Name: {fileID: 0}
-  user1Name: {fileID: 0}
-  user2Name: {fileID: 0}
-  user3Name: {fileID: 0}
-  user0Card0: {fileID: 0}
-  user0Card1: {fileID: 0}
-  user0Card2: {fileID: 0}
-  user0Card3: {fileID: 0}
-  user0Card4: {fileID: 0}
-  user0Card5: {fileID: 0}
-  user1Card0: {fileID: 0}
-  user1Card1: {fileID: 0}
-  user1Card2: {fileID: 0}
-  user1Card3: {fileID: 0}
-  user1Card4: {fileID: 0}
-  user1Card5: {fileID: 0}
-  user2Card0: {fileID: 0}
-  user2Card1: {fileID: 0}
-  user2Card2: {fileID: 0}
-  user2Card3: {fileID: 0}
-  user2Card4: {fileID: 0}
-  user2Card5: {fileID: 0}
-  user3Card0: {fileID: 0}
-  user3Card1: {fileID: 0}
-  user3Card2: {fileID: 0}
-  user3Card3: {fileID: 0}
-  user3Card4: {fileID: 0}
-  user3Card5: {fileID: 0}
-  dealerCard0: {fileID: 0}
-  dealerCard1: {fileID: 0}
-  dealerCard2: {fileID: 0}
-  dealerCard3: {fileID: 0}
-  dealerCard4: {fileID: 0}
-  dealerCard5: {fileID: 0}
 --- !u!1 &237290642
 GameObject:
   m_ObjectHideFlags: 0
@@ -3877,7 +3824,6 @@ GameObject:
   - component: {fileID: 682015549}
   - component: {fileID: 682015550}
   - component: {fileID: 682015551}
-  - component: {fileID: 682015552}
   m_Layer: 0
   m_Name: Card
   m_TagString: Untagged
@@ -3965,58 +3911,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 0
---- !u!114 &682015552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 682015548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51d9f7e0e7b77114387768a044f63152, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deckScript: {fileID: 0}
-  notEnoughMoneyError: {fileID: 0}
-  badRequestError: {fileID: 0}
-  money: {fileID: 0}
-  bet: {fileID: 0}
-  playerCount: {fileID: 0}
-  user0Name: {fileID: 0}
-  user1Name: {fileID: 0}
-  user2Name: {fileID: 0}
-  user3Name: {fileID: 0}
-  user0Card0: {fileID: 0}
-  user0Card1: {fileID: 0}
-  user0Card2: {fileID: 0}
-  user0Card3: {fileID: 0}
-  user0Card4: {fileID: 0}
-  user0Card5: {fileID: 0}
-  user1Card0: {fileID: 0}
-  user1Card1: {fileID: 0}
-  user1Card2: {fileID: 0}
-  user1Card3: {fileID: 0}
-  user1Card4: {fileID: 0}
-  user1Card5: {fileID: 0}
-  user2Card0: {fileID: 0}
-  user2Card1: {fileID: 0}
-  user2Card2: {fileID: 0}
-  user2Card3: {fileID: 0}
-  user2Card4: {fileID: 0}
-  user2Card5: {fileID: 0}
-  user3Card0: {fileID: 0}
-  user3Card1: {fileID: 0}
-  user3Card2: {fileID: 0}
-  user3Card3: {fileID: 0}
-  user3Card4: {fileID: 0}
-  user3Card5: {fileID: 0}
-  dealerCard0: {fileID: 0}
-  dealerCard1: {fileID: 0}
-  dealerCard2: {fileID: 0}
-  dealerCard3: {fileID: 0}
-  dealerCard4: {fileID: 0}
-  dealerCard5: {fileID: 0}
 --- !u!1 &707474524
 GameObject:
   m_ObjectHideFlags: 0
@@ -11588,12 +11482,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51d9f7e0e7b77114387768a044f63152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deckScript: {fileID: 0}
-  notEnoughMoneyError: {fileID: 0}
-  badRequestError: {fileID: 0}
+  deckScript: {fileID: 1231528320}
   money: {fileID: 0}
   bet: {fileID: 0}
-  playerCount: {fileID: 0}
   user0Name: {fileID: 0}
   user1Name: {fileID: 0}
   user2Name: {fileID: 0}
@@ -11622,8 +11513,8 @@ MonoBehaviour:
   user3Card3: {fileID: 0}
   user3Card4: {fileID: 0}
   user3Card5: {fileID: 0}
-  dealerCard0: {fileID: 0}
-  dealerCard1: {fileID: 0}
+  dealerCard0: {fileID: 455704822}
+  dealerCard1: {fileID: 276346663}
   dealerCard2: {fileID: 0}
   dealerCard3: {fileID: 0}
   dealerCard4: {fileID: 0}
