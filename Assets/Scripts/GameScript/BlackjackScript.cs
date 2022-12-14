@@ -419,7 +419,7 @@ public class BlackjackScript : MonoBehaviour
 
     private IEnumerator Stand(string gameId)
     {
-        using (var request = Utils.AuthorizedPostUnityWebRequest(_blackjackUri + "/money/deposit", gameId))
+        using (var request = Utils.AuthorizedPostUnityWebRequest(_blackjackUri + "/stand", gameId))
         {
             yield return request.SendWebRequest();
 
@@ -439,7 +439,7 @@ public class BlackjackScript : MonoBehaviour
 
     private IEnumerator DoubleDown(string gameId)
     {
-        using (var request = Utils.AuthorizedPostUnityWebRequest(_blackjackUri + "/money/deposit", gameId))
+        using (var request = Utils.AuthorizedPostUnityWebRequest(_blackjackUri + "/double_down", gameId))
         {
             yield return request.SendWebRequest();
 
