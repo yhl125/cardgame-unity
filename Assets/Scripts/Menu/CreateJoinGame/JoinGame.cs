@@ -125,6 +125,7 @@ public class JoinGame : MonoBehaviour
 
             var result = Utils.RequestResult(request);
             if (result == Utils.ErrorMessage("already entered")) Debug.Log("already entered");
+            PlayerPrefs.SetString("gameId", gameId);
             wait.gameObject.SetActive(true);
             join.gameObject.SetActive(false);
         }

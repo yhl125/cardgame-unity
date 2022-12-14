@@ -1,54 +1,134 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
+using Newtonsoft.Json;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class WaitingPlayer : MonoBehaviour
 {
-    private int count;//player count
-    private int readycount;//ready player count
-    public TMPro.TextMeshProUGUI PlayerCount;
-    public Button Back;
-    public Button Ready;
-    public Button Undo;
+    private readonly string _uri = Environment.GetEnvironmentVariable("API_URI") + "/blackjack";
+
+    public TextMeshProUGUI playerCount;
+    public Button back;
+    public Button ready;
+    public Button undo;
+    public Canvas join;
+    public Canvas wait;
+
+    private float _timePassed;
+
+
+    private int _readyCount, _count;
+
     void Start()
     {
-        //Player status is changed to stand
-        //fetch current connected player list from server
-        count = 1;//number of players instead of 1
+        StartCoroutine(GetGame(PlayerPrefs.GetString("gameId")));
 
-        Ready.onClick.AddListener(() =>
+        ready.onClick.AddListener(() =>
         {
-            Ready.enabled = false;
-            Undo.enabled = true;
-            //change player status to ready
+            ready.enabled = false;
+            undo.enabled = true;
+            StartCoroutine(ReadyGame(PlayerPrefs.GetString("gameId")));
         });
-        Undo.onClick.AddListener(() =>
+        undo.onClick.AddListener(() =>
         {
-            Ready.enabled = true;
-            Undo.enabled = false;
-            //change player status to stand
+            ready.enabled = true;
+            undo.enabled = false;
+            StartCoroutine(UndoReadyGame(PlayerPrefs.GetString("gameId")));
         });
+        back.onClick.AddListener(() => { StartCoroutine(LeaveGame(PlayerPrefs.GetString("gameId"))); });
     }
 
-    
+
     void Update()
     {
-        PlayerCount.SetText("("+readycount+"/"+count + " Players)");
-        //continue to update count and readycount
-        
-        CheckStart();
-        //Back.onClick.AddListener(x);
-        //x: changes player status back to enter and severes connection
-    }
-    private void CheckStart()
-    {
-        if(count == readycount)
+        _timePassed += Time.deltaTime;
+        if (_timePassed >= 5f)
         {
-            //stop server from accepting more players
-            
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            _timePassed = 0f;
+            StartCoroutine(GetGame(PlayerPrefs.GetString("gameId")));
+        }
+        playerCount.SetText("(" + _readyCount + "/" + _count + " Players)");
+    }
+
+    private static void GameStart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    private IEnumerator LeaveGame(string gameId)
+    {
+        using (var request = Utils.AuthorizedPostUnityWebRequest(_uri + "/game/leave", gameId))
+        {
+            yield return request.SendWebRequest();
+
+            var result = Utils.RequestResult(request);
+            if (result == Utils.ErrorMessage("game already started"))
+            {
+                GameStart();
+            }
+
+            wait.gameObject.SetActive(false);
+            join.gameObject.SetActive(true);
+        }
+    }
+
+    private IEnumerator ReadyGame(string gameId)
+    {
+        using (var request = Utils.AuthorizedPostUnityWebRequest(_uri + "/ready", gameId))
+        {
+            yield return request.SendWebRequest();
+
+            var result = Utils.RequestResult(request);
+            if (result == Utils.ErrorMessage("already started"))
+            {
+                GameStart();
+            }
+            _readyCount += 1;
+        }
+    }
+
+    private IEnumerator UndoReadyGame(string gameId)
+    {
+        using (var request = Utils.AuthorizedPostUnityWebRequest(_uri + "/ready/undo", gameId))
+        {
+            yield return request.SendWebRequest();
+
+            var result = Utils.RequestResult(request);
+            if (result == Utils.ErrorMessage("already started"))
+            {
+                GameStart();
+            }
+            _readyCount -= 1;
+        }
+    }
+
+    private IEnumerator GetGame(string gameId)
+    {
+        using (var request = UnityWebRequest.Get(_uri + "/game?game_id=" + gameId))
+        {
+            Debug.Log("get");
+            yield return request.SendWebRequest();
+
+            var result = Utils.RequestResult(request);
+            var blackjackGame = JsonConvert.DeserializeObject<BlackjackGame>(result);
+            if (blackjackGame == null) yield break;
+            _readyCount = 0;
+            _count = blackjackGame.players.Count;
+            blackjackGame.players.ForEach(player =>
+            {
+                if (player.status == "ready")
+                {
+                    _readyCount++;
+                }
+            });
+            if (blackjackGame.status == "waiting_bet")
+            {
+                GameStart();
+            }
         }
     }
 }
