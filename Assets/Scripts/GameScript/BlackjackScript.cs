@@ -89,7 +89,7 @@ public class BlackjackScript : MonoBehaviour
 
                         Debug.Log("연결이 끊어졌습니다.");
                         Debug.Log("프로세스를 종료합니다.");
-                        OnApplicationQuit();
+                        // OnApplicationQuit();
                     }
                 }
             }
@@ -100,11 +100,11 @@ public class BlackjackScript : MonoBehaviour
         }
     }
 
-    void OnApplicationQuit()
-    {
-        // close the thread when the application quits
-        _receiveThread.Abort();
-    }
+    // void OnApplicationQuit()
+    // {
+    //     // close the thread when the application quits
+    //     _receiveThread.Abort();
+    // }
 
     void Update()
     {
