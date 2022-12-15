@@ -621,7 +621,7 @@ public class BlackjackScript : MonoBehaviour
     {
         var value = CardToNumber(card);
         spriteRenderer.sprite = deckScript.cardSprites[value];
-        spriteRenderer.size = new Vector2(10f, 10f);
+        spriteRenderer.transform.localScale = new Vector3(10f, 10f, 1f);
         spriteRenderer.enabled = true;
     }
 }
