@@ -19,26 +19,24 @@ public class WaitingPlayer : MonoBehaviour
 
     private float _timePassed;
 
+    private bool _ready;
 
     private int _readyCount, _count;
 
     void Start()
     {
         StartCoroutine(GetGame(PlayerPrefs.GetString("gameId")));
-        bool Ready = false;
         ready.onClick.AddListener(() =>
         {
-            if (!Ready)
+            if (!_ready)
             {
                 ready.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "UNDO";
                 StartCoroutine(ReadyGame(PlayerPrefs.GetString("gameId")));
-                Ready = true;
             }
-            else if (Ready)
+            else if (_ready)
             {
                 ready.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "READY";
                 StartCoroutine(UndoReadyGame(PlayerPrefs.GetString("gameId")));
-                Ready = false;
             }
         });
         
@@ -91,6 +89,7 @@ public class WaitingPlayer : MonoBehaviour
                 GameStart();
             }
             _readyCount += 1;
+            _ready = true;
         }
     }
 
@@ -106,6 +105,7 @@ public class WaitingPlayer : MonoBehaviour
                 GameStart();
             }
             _readyCount -= 1;
+            _ready = false;
         }
     }
 
